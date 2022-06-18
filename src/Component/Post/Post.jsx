@@ -32,7 +32,6 @@ export default function Post() {
     // };
   }, [giphySearch, url]);
 
-
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log("31", form);
@@ -91,21 +90,13 @@ export default function Post() {
                   <div className="InputGifHeaderSection">
                     <div className="shareOptionText">GIF</div>
                     <input
-                      // style={{ display: "none" }}
                       type="text"
                       name="giphy"
                       onChange={(e) => setGiphySearch(e.target.value)}
-                      // accept=".png,.jpeg,.jpg"
-                      // onChange={(e) =>
-                      //   setForm({ ...form, file: e.target.files[0] })
-                      // }
                     />
-                    {/* <button onClick={handleSearcGiphyWord}>Search</button> */}
                     <CancelIcon
-                      // className="shareCancelImg"
                       onClick={() => {
                         setHide(false);
-                        // console.log("106", hide);
                       }}
                     />
                   </div>
@@ -117,7 +108,6 @@ export default function Post() {
                         style={{ width: "25%" }}
                         alt={giphySearch}
                         onClick={(e) => {
-                          // console.log("142",d);
                           setForm({ ...form, file: d.images.original.url });
                         }}
                       />
