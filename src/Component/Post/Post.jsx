@@ -49,77 +49,79 @@ export default function Post() {
   console.log(giphyData);
 
   return (
-    <div className="share">
-      <div className="shareWrapper">
-        <form className="shareBottom" onSubmit={submitHandler}>
-          <div className="inputSection">
-            <div className="Input">
-              <input
-                type="text"
-                name="text"
-                value={form.text}
-                onChange={(e) => setForm({ ...form, text: e.target.value })}
-                placeholder="Write Somthing Here"
-              />
-            </div>
-            {form.file && (
-              <div className="shareImgContainer">
-                <img className="shareImg" src={form.file} alt="" />
-                <CancelIcon
-                  className="shareCancelImg"
-                  onClick={() => setForm({ ...form, file: null })}
+    <>
+      <div className="share">
+        <div className="shareWrapper">
+          <form className="shareBottom" onSubmit={submitHandler}>
+            <div className="inputSection">
+              <div className="Input">
+                <input
+                  type="text"
+                  name="text"
+                  value={form.text}
+                  onChange={(e) => setForm({ ...form, text: e.target.value })}
+                  placeholder="Write Somthing Here"
                 />
               </div>
-            )}
-          </div>
-          <hr className="shareHr" />
-          <div className="shareOptions">
-            <label htmlFor="file" className="shareOption">
-              <GifIcon
-                htmlColor="tomato"
-                className="shareIcon"
-                fontSize="large"
-                style={{ border: "2px solid black" }}
-                onClick={() => {
-                  setHide(true);
-                  // console.log("89", hide);
-                }}
-              />
-              {hide && (
-                <div className="inputGifSection">
-                  <div className="InputGifHeaderSection">
-                    <div className="shareOptionText">GIF</div>
-                    <input
-                      type="text"
-                      name="giphy"
-                      onChange={(e) => setGiphySearch(e.target.value)}
-                    />
-                    <CancelIcon
-                      onClick={() => {
-                        setHide(false);
-                      }}
-                    />
-                  </div>
-                  <div>
-                    {giphyData.map((d) => (
-                      <img
-                        key={d.id}
-                        src={d.images.original.url}
-                        style={{ width: "25%" }}
-                        alt={giphySearch}
-                        onClick={(e) => {
-                          setForm({ ...form, file: d.images.original.url });
-                        }}
-                      />
-                    ))}
-                  </div>
+              {form.file && (
+                <div className="shareImgContainer">
+                  <img className="shareImg" src={form.file} alt="" />
+                  <CancelIcon
+                    className="shareCancelImg"
+                    onClick={() => setForm({ ...form, file: null })}
+                  />
                 </div>
               )}
-            </label>
-            <input className="shareButton" type="submit" />
-          </div>
-        </form>
+            </div>
+            <hr className="shareHr" />
+            <div className="shareOptions">
+              <label htmlFor="file" className="shareOption">
+                <GifIcon
+                  htmlColor="tomato"
+                  className="shareIcon"
+                  fontSize="large"
+                  style={{ border: "2px solid black" }}
+                  onClick={() => {
+                    setHide(true);
+                    // console.log("89", hide);
+                  }}
+                />
+                {hide && (
+                  <div className="inputGifSection">
+                    <div className="InputGifHeaderSection">
+                      <div className="shareOptionText">GIF</div>
+                      <input
+                        type="text"
+                        name="giphy"
+                        onChange={(e) => setGiphySearch(e.target.value)}
+                      />
+                      <CancelIcon
+                        onClick={() => {
+                          setHide(false);
+                        }}
+                      />
+                    </div>
+                    <div>
+                      {giphyData.map((d) => (
+                        <img
+                          key={d.id}
+                          src={d.images.original.url}
+                          style={{ width: "25%" }}
+                          alt={giphySearch}
+                          onClick={(e) => {
+                            setForm({ ...form, file: d.images.original.url });
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </label>
+              <input className="shareButton" type="submit" />
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
