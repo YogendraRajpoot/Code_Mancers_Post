@@ -1,10 +1,11 @@
 .share {
-  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  /* -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68); */
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  box-shadow: 0px 0px 16px -8px rgb(0 0 0 / 68%);
+  /* box-shadow: 0px 0px 16px -8px rgb(0 0 0 / 68%); */
+  box-shadow: 0px 0px 16px 2px rgb(255 255 255 / 68%);
   margin-top: 1%;
 }
 .shareWrapper {

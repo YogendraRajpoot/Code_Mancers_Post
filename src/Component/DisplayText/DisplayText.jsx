@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../DisplayText/DisplayText.css"
+import "../DisplayText/DisplayText.css";
 
 export const DisplayText = () => {
   const [data, setData] = useState([]);
@@ -15,19 +15,19 @@ export const DisplayText = () => {
       .catch((err) => console.log(err));
   };
   useEffect(() => {
-    return () => {
-      getData();
-    };
-  }, [getData]);
+    getData();
+  }, []);
 
   return (
     <>
-      <div className="Heading">All Post</div>
+      <h2 className="Heading">Inbox</h2>
       <div className="Container">
         {data.map((d) => (
-          <div className="Post">
-            <img src={d.file} alt="" />
-            <p>{d.text}</p>
+          <div className="PostContainer">
+            <div className="Post">
+              {d.file && <img src={d.file} alt="" />}
+              {d.text && <p>{d.text}</p>}
+            </div>
           </div>
         ))}
       </div>
