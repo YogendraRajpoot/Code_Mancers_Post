@@ -9,11 +9,11 @@ export default function Post() {
   const [giphySearch, setGiphySearch] = useState("");
   const [form, setForm] = useState({
     text: "",
-    file: null,
+    file: "",
   });
 
   const key = "tQ3mECRqR41dV8wUOgpsAep2NfNINw8a";
-  const url = `http://api.giphy.com/v1/gifs/search?&api_key=${key}&q=${giphySearch}`;
+  const url = `http://api.giphy.com/v1/gifs/search?&api_key=${key}&q=${giphySearch}&limit=10`;
 
   useEffect(() => {
     // return () => {
@@ -43,6 +43,11 @@ export default function Post() {
       .then((res) => res.json())
       .then((res) => {
         console.log("30", res);
+        setForm({
+          text: "",
+          file: "",
+        });
+        setHide(false);
       })
       .catch((err) => console.log(err));
   };
@@ -68,7 +73,7 @@ export default function Post() {
                   <img className="shareImg" src={form.file} alt="" />
                   <CancelIcon
                     className="shareCancelImg"
-                    onClick={() => setForm({ ...form, file: null })}
+                    onClick={() => setForm({ ...form, file: "" })}
                   />
                 </div>
               )}
@@ -103,13 +108,14 @@ export default function Post() {
                     </div>
                     <div>
                       {giphyData.map((d) => (
+                        
                         <img
                           key={d.id}
-                          src={d.images.original.url}
+                          src={d.images.preview_gif.url}
                           style={{ width: "25%" }}
                           alt={giphySearch}
                           onClick={(e) => {
-                            setForm({ ...form, file: d.images.original.url });
+                            setForm({ ...form, file: d.images.preview_gif.url });
                           }}
                         />
                       ))}
