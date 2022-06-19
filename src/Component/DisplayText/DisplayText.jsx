@@ -9,7 +9,7 @@ export const DisplayText = () => {
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        console.log("30", res);
+        // console.log("30", res);
         setData(res.reverse());
       })
       .catch((err) => console.log(err));

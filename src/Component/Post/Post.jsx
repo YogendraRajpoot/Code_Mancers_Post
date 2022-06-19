@@ -18,7 +18,7 @@ export default function Post() {
   useEffect(() => {
     // return () => {
     if (giphySearch !== "") {
-      console.log("21", giphySearch);
+      // console.log("21", giphySearch);
       fetch(url)
         .then((res) => res.json())
         .then(
@@ -34,7 +34,7 @@ export default function Post() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("31", form);
+    // console.log("31", form);
     fetch(`https://backend-code-mancers.herokuapp.com/post`, {
       method: "post",
       body: JSON.stringify(form),
@@ -42,7 +42,7 @@ export default function Post() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("30", res);
+        // console.log("30", res);
         setForm({
           text: "",
           file: "",
@@ -51,7 +51,7 @@ export default function Post() {
       })
       .catch((err) => console.log(err));
   };
-  console.log(giphyData);
+  // console.log(giphyData);
 
   return (
     <>
