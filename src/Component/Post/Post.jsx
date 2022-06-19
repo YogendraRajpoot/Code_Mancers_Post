@@ -13,7 +13,7 @@ export default function Post() {
   });
 
   const key = "tQ3mECRqR41dV8wUOgpsAep2NfNINw8a";
-  const url = `http://api.giphy.com/v1/gifs/search?&api_key=${key}&q=${giphySearch}&limit=10`;
+  const url = `http://api.giphy.com/v1/gifs/search?&api_key=${key}&q=${giphySearch}&limit=20`;
 
   useEffect(() => {
     // return () => {
@@ -108,14 +108,16 @@ export default function Post() {
                     </div>
                     <div>
                       {giphyData.map((d) => (
-                        
                         <img
                           key={d.id}
                           src={d.images.preview_gif.url}
                           style={{ width: "25%" }}
                           alt={giphySearch}
                           onClick={(e) => {
-                            setForm({ ...form, file: d.images.preview_gif.url });
+                            setForm({
+                              ...form,
+                              file: d.images.preview_gif.url,
+                            });
                           }}
                         />
                       ))}

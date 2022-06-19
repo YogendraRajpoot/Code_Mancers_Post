@@ -22,14 +22,18 @@ export const DisplayText = () => {
     <>
       <h2 className="Heading">Inbox</h2>
       <div className="Container">
-        {data.map((d) => (
-          <div className="PostContainer" key={d.id}>
-            <div className="Post">
-              {d.file && <img src={d.file} alt="" />}
-              {d.text && <p>{d.text}</p>}
-            </div>
-          </div>
-        ))}
+        {data.map(
+          (d) =>
+            d.file != "" &&
+            d.text != "" && (
+              <div className="PostContainer" key={d.id}>
+                <div className="Post">
+                  {d.file && <img src={d.file} alt="" />}
+                  {d.text && <p>{d.text}</p>}
+                </div>
+              </div>
+            )
+        )}
       </div>
     </>
   );
