@@ -13,7 +13,7 @@ export default function Post() {
   });
 
   const key = "tQ3mECRqR41dV8wUOgpsAep2NfNINw8a";
-  const url = `http://api.giphy.com/v1/gifs/search?&api_key=${key}&q=${giphySearch}&limit=20`;
+  const url = `https://api.giphy.com/v1/gifs/search?&api_key=${key}&q=${giphySearch}&limit=20`;
 
   useEffect(() => {
     // return () => {
